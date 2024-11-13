@@ -1,0 +1,334 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body{
+    margin: 0;
+}
+
+#NavBar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5vw;
+    height: 10vh;
+
+    padding: 0 0 0 2vw;
+    box-sizing: border-box;
+}
+
+#NavBar > a {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.25rem;
+    font-weight: bold;
+    font-style: italic;
+    background: linear-gradient(to right, #057DC2, #04ACC5 );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+
+#NavBar > button {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.25rem;
+    font-weight: bold;
+    font-style: italic;
+    background: linear-gradient(to right, #057DC2, #04ACC5 );
+    color: white;
+    border-radius: 40px;
+    border: none;
+    padding: 11px 23px 11px 25px;
+    position: absolute;
+    right: 0;
+    margin-right: 2vw;
+    transition: all 0.2s;
+}
+
+#NavBar > button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+#NavBar > button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+
+#NavBar > button:after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+
+
+#NavBar > #GetUpPlaySingleLogo{
+    font-size: 2em;
+}
+
+#LandingPage{
+    height: 80vh;
+    margin: 0px 100px 0px 100px;
+    position: relative;
+}
+
+#LandingPage > h1{
+    font-family: "Poppins", sans-serif;
+    font-size: 12em;
+    font-weight: bold;
+    font-style: italic;
+    background: linear-gradient(to right, #0562C1, #03C4C6 );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -4px;
+    padding-top: 6vh;
+    margin: 0px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#Description{
+    position: absolute;
+    width: 100%;
+    background: linear-gradient(#057DC2, #04ACC5 );
+    height: auto;
+}
+
+#InsideDescription{
+    margin: 0px 100px 0px 100px;
+}
+
+#Block{
+    width: 15vw;
+    height: 30vh;
+    background: linear-gradient(to right, #057DC2, #04ACC5 );
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 10vh;
+
+    box-shadow: 10px 10px 5px #888888;
+}
+
+#Block > h1{
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+#Block > p {
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-style: italic;
+    font-size: 1.25em;
+}
+
+#Image{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+}
+
+#Note{
+    width: 50%;
+    padding-left: 15%;
+}
+
+#InsideDescription{
+    padding-top: 12vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#InsideDescription > div > h1{
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 7em;
+    padding-top: 0px;
+    margin-top: 0px;
+
+
+}
+
+#InsideDescription > div > p{
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-style: italic;
+    font-size: 1.2em;
+    line-height: 200%;
+    letter-spacing: 2px;
+    width: 40vw;
+}
+
+#InsideDescription > div > button{
+    font-family: "Poppins", sans-serif;
+    font-size: 1.25rem;
+    font-weight: bold;
+    font-style: italic;
+    background: transparent;
+    color: white;
+    border-radius: 40px;
+    border: solid white;
+    margin-top: 7vh;
+    padding: 11px 90px 11px 90px;
+    transition: all .3s;
+}
+
+#InsideDescription > div > button:hover {
+    background-color: white;
+    transition: all .3s;
+    color: #057DC2;
+   }
+
+
+
+
+#InsideDescription > div > img{
+    margin-top: 5vh;
+    width: 37%;
+    position: absolute;
+    right: 0;
+}
+
+#Carroussel{
+    margin: 20vh 100px 8vh 100px;
+}
+
+#Carroussel > h3 {
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 2.4em;
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+.carousel {
+    margin: 0 auto;
+    max-width: 100%;
+    overflow: hidden;
+    display: flex;
+    > * {
+        flex: 0 0 100%;
+      }
+      
+  }
+
+  .group {
+    display: flex;
+    gap: 1vw;
+    padding-right: 20px;
+    will-change: transform;
+    animation: scrolling 25s linear infinite;
+  }
+
+  @keyframes scrolling {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+
+
+
+  footer{
+    display: flex;
+    flex-direction: row;
+
+    margin: 15vh 100px 7svh 100px;
+}
+
+#FirstCollumn{
+    margin-right: 11.3vw;
+    >img{
+        width: 17.3vw;
+    }
+}
+
+
+#SecondCollumn{
+    >p {
+        margin-right: 17.7vw;
+
+        color: white;
+        font-weight: bold;
+        font-family: "Poppins", sans-serif;
+        color: white;
+        font-size: 1rem;
+
+        margin-bottom: 4vh;
+    }
+    > #Pages{
+        display: flex;
+        flex-direction: column;
+        gap: 1.4vh;
+
+        margin-right: 8.75vw;
+        
+        > a{
+            color: white;
+            text-decoration: none;
+
+            font-family: "Poppins", sans-serif;
+            color: white;
+            font-size: 1rem;
+        }
+    }
+}
+
+#ThirdCollumn{
+    >p {
+        margin-right: 17.7vw;
+
+        color: white;
+        font-weight: bold;
+        font-family: "Poppins", sans-serif;
+        color: white;
+        font-size: 1rem;
+
+        margin-bottom: 4vh;
+    }
+
+    >div{
+        display: flex;
+        flex-direction: row;
+
+        gap:2.2vw;
+    }
+
+    >div > img {
+        width: 2.2vw;
+        transition: 0.2s;
+    }
+
+    >div >img:hover{
+        transform: translateY(-3px);
+        transition: 0.2s;
+    }
+}
