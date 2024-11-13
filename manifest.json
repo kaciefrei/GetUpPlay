@@ -1,7 +1,7 @@
 {
     "name": "Get Up Play",
     "short_name": "Get Up Play",
-    "start_url": "https://www.getupplay.online",
+    "start_url": "index.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#ffffff",
