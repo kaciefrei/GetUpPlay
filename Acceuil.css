@@ -71,7 +71,7 @@ body{
 }
 
 #NavBar > #GetUpPlaySingleLogo{
-    font-size: 2em;
+    font-size: 2vw;
 }
 
 
@@ -83,7 +83,7 @@ body{
 
 #LandingPage > h1{
     font-family: "Poppins", sans-serif;
-    font-size: 12em;
+    font-size: 12vw;
     font-weight: bold;
     font-style: italic;
     background: linear-gradient(to right, #0562C1, #03C4C6 );
@@ -110,7 +110,7 @@ body{
 }
 
 #Block{
-    width: 15vw;
+    width: 260px;
     height: 30vh;
     background: linear-gradient(to right, #057DC2, #04ACC5 );
     border-radius: 20px;
@@ -139,7 +139,7 @@ body{
     color: white;
     font-family: "Poppins", sans-serif;
     font-style: italic;
-    font-size: 1.25em;
+    font-size: 1.3em;
 }
 
 #Image{
@@ -341,12 +341,26 @@ body{
     }
 }
 
+#NoteMobile{
+    display: none;
+}
+
+#ButtonMobile{
+    display: none;
+}
+
 
 
 @media (max-width: 1124px) {
+
+    body{
+        margin: 0;
+        padding: 0;
+    }
     
     #NavBar{
         padding: 0 0 0 4vw;
+        
     }
     
     #NavBar > a {
@@ -378,13 +392,14 @@ body{
     }
 
     #LandingPage{
-        height: 60vh;
-        margin: 0px 4vh 0px 4vh;
+        height: 55vh;
+        margin: 0;
         position: relative;
+        
     }
     
     #LandingPage > h1{
-        font-size: 15.2vw;
+        font-size: 17.2vw;
         margin: 6vh 0px 0px 0px;
         padding: 0px;
     }
@@ -399,6 +414,187 @@ body{
 
     #Personna{
         display: block;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+    }
+
+    #Activite{
+        display: none;
+    }
+
+    #Description{
+        border-radius: 20px 20px 0px 0px;
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+    }
+
+    #InsideDescription{
+        padding: 0px 4vw 0px 4vw;
+        margin: 0;
+    }
+
+
+    #NoteMobile{
+        display: block;
+        padding: 0 4vw 0 4vw;
+
+        height: 27vh;
+
+        >img {
+            position: absolute;
+            right: 0;
+
+            width: 38%;
+        }
+    }
+
+    #NomPersona{
+        color: white;
+        font-family: "Poppins", sans-serif;
+        font-weight: bold;
+        font-style: italic;
+        font-size: 8vw;
+
+        margin-bottom: 0;
+        margin-top: 2vh;
+    }
+
+    #DescriptionPersona{
+        color: white;
+        font-family: "Poppins", sans-serif;
+        font-style: italic;
+        font-size: 3.5vw;
+        width: 75vw;
+        line-height: 3vh;
+        letter-spacing: 0.5vw;
+        margin-bottom: 0;
+    }
+
+    #Line{
+        margin: 0 4vw 0 4vw;
+        width: 92%;
+    }
+
+    #InsideDescription{
+        > div > h1{
+            margin-top: 4vh;
+            font-size: 13vw;
+        }
+        > div > p{
+            font-size: 3.5vw;
+            width: 75vw;
+        }
+        > div > button{
+            display: none;
+        }
+        > div > #ButtonMobile{
+            display: block;
+            font-size: 4vw;
+            border: none;
+            background-color: white;
+            padding-left: 13vw;
+            padding-right: 13vw;
+        }
+        > div > #ButtonMobile >p{
+            background: linear-gradient(to right, #057DC2, #04ACC5 );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    #Carroussel{
+        margin: 10vh 4vw 5vh 4vw;
+
+        > h3 {
+            color: white;
+            font-family: "Poppins", sans-serif;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 7vw;
+            padding-top: 0px;
+            margin-top: 0px;
+            margin-bottom: 0;
+        }    
+    }
+
+    .carousel {
+        margin: 0 auto;
+        max-width: 100%;
+        overflow: hidden;
+        display: flex;
+        > * {
+            flex: 0 0 100%;
+          }
+          
+      }
+    
+      .group {
+        display: flex;
+        gap: 1vw;
+        padding-right: 20px;
+        will-change: transform;
+        animation: scrolling 25s linear infinite;
+
+        > img{
+            width: 60vw;
+        }
+      }
+    
+      @keyframes scrolling {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+    footer{
+        margin: 15vh 4vw 7vh 4vw;
+        flex-direction: column;
+        gap: 3vh;
+    }
+
+    #FirstCollumn{
+        >img{
+            width: 35vw;
+        }
+    }
+    
+    
+    #SecondCollumn{
+        >p {
+            margin-right: 0;
+            font-size: 4vw;
+    
+            margin-bottom: 4vh;
+        }
+        > #Pages{
+            margin-right: 0;
+            
+            > a{
+                font-size: 3.5vw;
+            }
+        }
+    }
+    
+    #ThirdCollumn{
+        >p {
+            margin-right: 0;
+            font-size: 4vw;
+        }
+    
+        >div{
+            gap:6vw;
+        }
+    
+        >div > img {
+            width: 6vw;
+        }
     }
 
 }
