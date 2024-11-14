@@ -1,6 +1,6 @@
 {
-    "name": "Get Up Play",
-    "short_name": "Get Up Play",
+    "name": "GetUpPlay",
+    "short_name": "GetUpPlay",
     "start_url": "index.html",
     "display": "standalone",
     "background_color": "#ffffff",
