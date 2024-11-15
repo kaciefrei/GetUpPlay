@@ -355,7 +355,7 @@ body{
 
 
 
-@media (max-width: 1124px) {
+@media (min-width: 0px) and (max-width: 599px) {
 
     body{
         margin: 0;
@@ -477,6 +477,7 @@ body{
     }
 
     #Line{
+        display: block;
         margin: 0 4vw 0 4vw;
         width: 92%;
     }
@@ -602,3 +603,206 @@ body{
     }
 
 }
+
+@media (min-width: 600px) and (max-width: 1200px) {
+    body{
+        margin: 0;
+        padding: 0;
+    }
+    
+    #NavBar{
+        padding: 0 0 0 4vw;
+        
+    }
+    
+    #NavBar > a {
+        display: none;
+    }
+    
+    
+    
+    #NavBar > #Download {
+        display: none;
+    }
+    
+    
+    #NavBar > #GetUpPlaySingleLogo{
+        font-size: 2em;
+        display: block;
+    }
+
+    #Menu{
+        display: inline;
+        font-family: "Poppins", sans-serif;
+        background: transparent;
+        color: white;
+        border-radius: 40px;
+        border: none;
+        position: absolute;
+        right: 0;
+        margin-right: 4vw;
+    }
+
+    #LandingPage{
+        height: 75vh;
+        margin: 0;
+        position: relative;
+        
+    }
+
+    #LandingPage > h1{
+        font-size: 15vw;
+        margin: 4vh 0px 0px 0px;
+        padding: 0px;
+    }
+
+    #Block{
+        display: none;
+    }
+
+    #Note{
+        width: 70%;
+        padding-left: 15%;
+    }
+
+    #Activite{
+        display: none;
+    }
+
+    #InsideDescription{
+        padding: 10vh 4vw 0px 4vw;
+        margin: 0;
+    }
+
+    #InsideDescription{
+        > div > h1{
+            font-size: 7vw;
+        }
+        > div > p{
+            font-size: 2.3vw;
+            width: 75vw;
+        }
+        > div > button{
+            display: none;
+        }
+        > div > #ButtonMobile{
+            display: block;
+            font-size: 2.3vw;
+            border: none;
+            background-color: white;
+            padding-left: 13vw;
+            padding-right: 13vw;
+        }
+        > div > #ButtonMobile >p{
+            background: linear-gradient(to right, #057DC2, #04ACC5 );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    #Carroussel{
+        margin: 10vh 4vw 5vh 4vw;
+
+        > h3 {
+            color: white;
+            font-family: "Poppins", sans-serif;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 4vw;
+            padding-top: 0px;
+            margin-top: 0px;
+            margin-bottom: 0;
+        }    
+    }
+
+    .carousel {
+        margin: 0 auto;
+        max-width: 100%;
+        overflow: hidden;
+        display: flex;
+        > * {
+            flex: 0 0 100%;
+          }
+          
+      }
+    
+      .group {
+        display: flex;
+        gap: 1vw;
+        padding-right: 20px;
+        will-change: transform;
+        animation: scrolling 25s linear infinite;
+
+        > img{
+            width: 35vw;
+        }
+      }
+    
+      @keyframes scrolling {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+    footer{
+        margin: 15vh 4vw 7vh 4vw;
+        flex-direction: column;
+        gap: 3vh;
+    }
+
+    #FirstCollumn{
+        >img{
+            width: 25vw;
+        }
+    }
+    
+    
+    #SecondCollumn{
+        >p {
+            margin-right: 0;
+            font-size: 2.5vw;
+    
+            margin-bottom: 4vh;
+        }
+        > #Pages{
+            margin-right: 0;
+            
+            > a{
+                font-size: 2vw;
+            }
+        }
+    }
+    
+    #ThirdCollumn{
+        >p {
+            margin-right: 0;
+            font-size: 2.5vw;
+        }
+    
+        >div{
+            gap:6vw;
+        }
+    
+        >div > img {
+            width: 4vw;
+        }
+    }
+
+}
+
+
+@media (min-height: 0px) and (max-height: 500px){
+    #Note{
+        width: 50%;
+    }
+
+    #NavBar{
+        height: 15vh;
+    }
+}
+
