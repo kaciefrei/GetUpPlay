@@ -6,7 +6,12 @@
         "Accroupi": "F",
         "Tourner a gauche": "A",
         "Tourner a droite": "G",
-        "Saut" : "P"
+        "Saut": "Up",
+        "Se pencher a droite": "Right",
+        "Se pencher a gauche": "Left",
+        "Tete baissee": "Down",
+        "Bras droit horizontal": "D",
+        "Bras gauche horizontal": "Q"
     },
     "FIFA": {
         "Tourner a gauche": "Z",
@@ -14,8 +19,20 @@
         "Bras gauche leve": "A",
         "Accroupi": "R"
     },
+    "Subway Surfers": {
+        "Se pencher a gauche": "Left",
+        "Se pencher a droite": "Right",
+        "Bras gauche leve": "Up",
+        "Bras droit leve": "Up",
+        "Tete baissee": "Down",
+        "Accroupi": "Down"
+    },
     "Tetris": {
-        "Bras gauche leve": "Left",
-        "Bras droit leve": "Right"
+        "Se pencher a gauche": "Left",
+        "Se pencher a droite": "Right",
+        "Bras gauche leve": "Up",
+        "Bras droit leve": "Up",
+        "Bras droit horizontal": "Down",
+        "Bras gauche horizontal": "Down"
     }
 }
