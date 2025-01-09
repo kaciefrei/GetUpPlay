@@ -1,4 +1,4 @@
-# AppV6
+# GetUpPlay App
 
 Bienvenue dans l'application **GetUpPlay** ! Ce guide vous expliquera comment installer les dépendances nécessaires et lancer le programme.
 
