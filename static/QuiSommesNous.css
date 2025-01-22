@@ -26,7 +26,7 @@ body{
 
 
 
-#NavBar > button {
+#NavBar > #Download {
     font-family: "Poppins", sans-serif;
     font-size: 1.25rem;
     font-weight: bold;
@@ -42,17 +42,17 @@ body{
     transition: all 0.2s;
 }
 
-#NavBar > button:hover {
+#NavBar > #Download:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-#NavBar > button:active {
+#NavBar > #Download:active {
     transform: translateY(-1px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   }
 
-#NavBar > button:after {
+#NavBar > #Download:after {
     content: "";
     display: inline-block;
     height: 100%;
@@ -282,4 +282,263 @@ footer{
     position: absolute;
     right: 0;
     width: 12vw;
+}
+
+#Menu{
+    display: none;
+}
+
+@media (min-width: 600px) and (max-width: 1200px) {
+
+    body{
+        margin: 0;
+        padding: 0;
+    }
+
+    #NavBar{
+        padding: 0 0 0 4vw;
+        
+    }
+
+    #NavBar > a {
+        display: none;
+    }
+
+    #NavBar > #Download {
+        display: none;
+    }
+
+    #NavBar > #GetUpPlaySingleLogo{
+        font-size: 2em;
+        display: block;
+    }
+
+    #Menu{
+        display: inline;
+        font-family: "Poppins", sans-serif;
+        background: transparent;
+        color: white;
+        border-radius: 40px;
+        border: none;
+        position: absolute;
+        right: 0;
+        margin-right: 4vw;
+    }
+
+    #QuiSommesNous{
+        margin: 20Vh 4vw 0 4vw;
+    }
+
+    #QuiSommesNous > p{
+        font-size: 2.3vw;
+        margin: 4vh 0px 0px 0px;
+        padding: 0px;
+        width: 77vw;
+    }
+
+    #QuiSommesNous > img{
+        width: 40vw;
+    }
+    
+    #InsideDescription{
+        margin: 9vh 4vw 100px 4vw;
+    }
+
+    .Block{
+        width: 30vw;
+        height: 47vh;
+
+        >h2 {
+            font-size: 1.6rem;
+        }
+
+        > .bottom > p {
+            font-size: 1rem;
+        }
+
+        > .bottom > a {
+            font-size: 1rem;
+        }
+    }
+
+    footer{
+        margin: 15vh 4vw 7vh 4vw;
+        flex-direction: column;
+        gap: 3vh;
+    }
+
+    #FirstCollumn{
+        >img{
+            width: 25vw;
+        }
+    }
+    
+    
+    #SecondCollumn{
+        >p {
+            margin-right: 0;
+            font-size: 2.5vw;
+    
+            margin-bottom: 4vh;
+        }
+        > #Pages{
+            margin-right: 0;
+            
+            > a{
+                font-size: 2vw;
+            }
+        }
+    }
+    
+    #ThirdCollumn{
+        >p {
+            margin-right: 0;
+            font-size: 2.5vw;
+        }
+    
+        >div{
+            gap:6vw;
+        }
+    
+        >div > img {
+            width: 4vw;
+        }
+    }
+}
+
+@media (min-width: 0px) and (max-width: 599px) {
+
+    body{
+        margin: 0;
+        padding: 0;
+    }
+
+    #NavBar{
+        padding: 0 0 0 4vw;
+        
+    }
+
+    #NavBar > a {
+        display: none;
+    }
+
+    #NavBar > #Download {
+        display: none;
+    }
+
+    #NavBar > #GetUpPlaySingleLogo{
+        font-size: 2em;
+        display: block;
+    }
+
+    #Menu{
+        display: inline;
+        font-family: "Poppins", sans-serif;
+        background: transparent;
+        color: white;
+        border-radius: 40px;
+        border: none;
+        position: absolute;
+        right: 0;
+        margin-right: 4vw;
+    }
+
+    #QuiSommesNous{
+        margin: 10Vh 4vw 0 4vw;
+    }
+
+    #QuiSommesNous > p{
+        font-size: 4vw;
+        margin: 4vh 0px 0px 0px;
+        padding: 0px;
+        width: 77vw;
+    }
+
+    #QuiSommesNous > img{
+        width: 50vw;
+    }
+
+    #InsideDescription{
+        margin: 9vh 4vw 100px 4vw;
+
+        > h1{
+            font-size: 1.4rem;
+        }
+    }
+
+    .Line{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .Block{
+        width: 72vw;
+        height: 45vh;
+        padding: 5vw;
+
+        >h2 {
+            font-size: 1.4rem;
+        }
+
+        > .bottom > p {
+            font-size: 0.8rem;
+        }
+
+        > .bottom > a {
+            font-size: 0.8rem;
+        }
+    }
+
+
+
+    footer{
+        margin: 15vh 4vw 7vh 4vw;
+        flex-direction: column;
+        gap: 3vh;
+    }
+
+    #FirstCollumn{
+        >img{
+            width: 35vw;
+        }
+    }
+    
+    
+    #SecondCollumn{
+        >p {
+            margin-right: 0;
+            font-size: 4vw;
+    
+            margin-bottom: 4vh;
+        }
+        > #Pages{
+            margin-right: 0;
+            
+            > a{
+                font-size: 3.5vw;
+            }
+        }
+    }
+    
+    #ThirdCollumn{
+        >p {
+            margin-right: 0;
+            font-size: 4vw;
+        }
+    
+        >div{
+            gap:6vw;
+        }
+    
+        >div > img {
+            width: 6vw;
+        }
+    }
+}
+
+@media (min-height: 0px) and (max-height: 500px){
+    #NavBar{
+        height: 15vh;
+    }
 }
