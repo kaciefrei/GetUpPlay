@@ -10,7 +10,6 @@ body{
     align-items: center;
     gap: 5vw;
     height: 10vh;
-
     padding: 0 0 0 2vw;
     box-sizing: border-box;
 }
@@ -24,7 +23,6 @@ body{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 
 
 #NavBar > #Download {
@@ -69,6 +67,88 @@ body{
 #Menu{
     display: none;
 }
+
+#QSN{
+    display: none;
+    position: absolute;
+    text-align: center;
+    font-size: 20px;
+    top: 40%;
+}
+
+#Catalogue{
+    display: none;
+    position: absolute;
+    text-align: center;
+    font-size: 20px;
+    top: 48%;
+}
+
+#space{
+    display: none;
+}
+
+
+#burger{
+    display: none;
+}
+
+.nav-links a,
+.nav-links button {
+    display: inline-block;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 0 10px;
+}
+
+#close {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.nav-links.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.nav-links.active a,
+.nav-links.active button {
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+.nav-links.active #close {
+    display: block;
+}
+
+.nav-links.active #burger {
+    display: none;
+}
+
+.nav-links.active #GetUpPlaySingleLogo {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+}
+
+
 
 #NavBar > #GetUpPlaySingleLogo{
     font-size: 2em;
@@ -371,11 +451,41 @@ body{
         display: none;
     }
     
-    
+    #burger {
+        display: block;
+    }
+
+    .nav-links a,
+    .nav-links button {
+        display: none;
+    }
+
+    .nav-links.active a,
+    .nav-links.active button {
+        display: block;
+    }
     
     #NavBar > #Download {
         display: none;
     }
+
+    #NavBar > #burger {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        padding: 10px;
+        z-index: 11;
+    }
+    
+    #NavBar > #burger img {
+        background-color: white; 
+        border-radius: 50%;
+        padding: 10px;
+    }
+    
     
     
     #NavBar > #GetUpPlaySingleLogo{
@@ -618,10 +728,49 @@ body{
     #NavBar > a {
         display: none;
     }
-    
-    
-    
+        
     #NavBar > #Download {
+        display: none;
+    }
+
+    #NavBar > #burger {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        padding: 10px;
+        z-index: 11;
+    }
+    
+    #NavBar > #burger img {
+        background-color: white;
+        border-radius: 50%;
+        padding: 10px;
+    }
+
+    .close {
+        display: none;
+        position: fixed;
+        top: 20px;
+        right: 20px; 
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 50px;
+        color: var(--color4);
+        cursor: pointer;
+        z-index: 12;
+    }
+
+    .nav-links.active ~ .close {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav-links.active ~ .burger {
         display: none;
     }
     
