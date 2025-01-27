@@ -1,10 +1,9 @@
-FROM --platform=linux/arm64 alpine:3.15.4
+FROM alpine:3.15.4
 
-RUN apk add --no-cache thttpd
+RUN apk add thttpd
 
 RUN adduser -D static
 USER static
-
 WORKDIR /home/static
 
 COPY . .
