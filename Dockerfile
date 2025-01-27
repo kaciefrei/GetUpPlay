@@ -1,11 +1,9 @@
-FROM node:alpine
+FROM python:3.9-alpine
 
 WORKDIR /usr/src/app
 
 COPY . .
 
-RUN npm install -g http-server
+EXPOSE 8000
 
-EXPOSE 8080
-
-CMD ["http-server", ".", "-p", "8080"]
+CMD ["python3", "-m", "http.server", "8000"]
