@@ -1,9 +1,11 @@
-FROM nginx:alpine
+FROM node:alpine
 
-RUN rm -rf /usr/share/nginx/html/*
+WORKDIR /usr/src/app
 
-COPY ./ /usr/share/nginx/html/
+COPY . .
 
-EXPOSE 80
+RUN npm install -g http-server
 
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 8080
+
+CMD ["http-server", ".", "-p", "8080"]
