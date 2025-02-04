@@ -153,7 +153,6 @@ class GetUpPlayApp:
         ctk.set_default_color_theme("blue")
 
         poppins_font = ("Poppins", 14)
-        poppins_font_bold_italic = ("*Poppins*", 14)
 
         GUP_add = ImageTk.PhotoImage(Image.open("../public/Mask group (6).png").resize((30, 30), Image.Resampling.LANCZOS))
         GUP_delete = ImageTk.PhotoImage(Image.open("../public/delete 1.png").resize((30, 30), Image.Resampling.LANCZOS))
@@ -165,9 +164,12 @@ class GetUpPlayApp:
         # Initialisation de la variable de profil
         self.profile_var = tk.StringVar(value="Jeu 1")
 
+
+
         # Left frame
         self.left_frame = ctk.CTkFrame(self.root, width=0, height=0, fg_color=("#054DC2"), corner_radius=0)
         self.left_frame.grid(row=0, rowspan=1024, column=0, columnspan=145, sticky="nsew")
+
 
         # Right frame
         self.right_frame = ctk.CTkFrame(self.root, width=0, height=0, fg_color=("#0579C2"), corner_radius=0)
@@ -252,8 +254,8 @@ class GetUpPlayApp:
         
 
         # Ajouter le retour vidéo dans le right_frame
-        # self.canvas = ctk.CTkLabel()
-        # self.canvas.grid()
+        self.canvas = ctk.CTkLabel(self.cam_frame)
+        self.canvas.grid(sticky="nsew")
 
         self.capture_video()
 
