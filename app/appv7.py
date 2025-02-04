@@ -153,12 +153,20 @@ class GetUpPlayApp:
         ctk.set_default_color_theme("blue")
 
         poppins_font = ("Poppins", 14)
+        poppins_font_bold_italic = ("*Poppins*", 14)
+
+        GUP_add = ImageTk.PhotoImage(Image.open("../public/Mask group (6).png").resize((30, 30), Image.Resampling.LANCZOS))
+        GUP_delete = ImageTk.PhotoImage(Image.open("../public/delete 1.png").resize((30, 30), Image.Resampling.LANCZOS))
+        GUP_download = ImageTk.PhotoImage(Image.open("../public/downloads 1.png").resize((30, 30), Image.Resampling.LANCZOS))
+        GUP_import = ImageTk.PhotoImage(Image.open("../public/import 1.png").resize((30, 30), Image.Resampling.LANCZOS))
+        GUP_refresh = ImageTk.PhotoImage(Image.open("../public/refresh 1.png").resize((30, 30), Image.Resampling.LANCZOS))
+        GUP_logo = ImageTk.PhotoImage(Image.open("../public/Group 16.png").resize((50, 50), Image.Resampling.LANCZOS))
 
         # Initialisation de la variable de profil
         self.profile_var = tk.StringVar(value="Jeu 1")
 
         # Left frame
-        self.left_frame = ctk.CTkFrame(self.root, width=0, height=0, fg_color=("#0579C2"), corner_radius=0)
+        self.left_frame = ctk.CTkFrame(self.root, width=0, height=0, fg_color=("#054DC2"), corner_radius=0)
         self.left_frame.grid(row=0, rowspan=1024, column=0, columnspan=145, sticky="nsew")
 
         # Right frame
@@ -189,10 +197,10 @@ class GetUpPlayApp:
 
 
         # Frames inside the right_frame
-        self.description_frame = ctk.CTkFrame(self.right_frame, width=0, height=0, fg_color=("#FFFFFF"), corner_radius=17)
+        self.description_frame = ctk.CTkFrame(self.right_frame, width=0, height=0, fg_color=("#CDEAF3"), corner_radius=17)
         self.description_frame.grid(row=48, rowspan=145, column=30, columnspan=757, sticky="nsew")
 
-        self.button_frame = ctk.CTkFrame(self.right_frame, width=0, height=0, fg_color=("#FFFFFF"), corner_radius=17)
+        self.button_frame = ctk.CTkFrame(self.right_frame, width=0, height=0, fg_color=("#CDEAF3"), corner_radius=17)
         self.button_frame.grid(row=223, rowspan=549, column=30, columnspan=424, sticky="nsew")
 
         self.cam_frame = ctk.CTkFrame(self.right_frame, width=0, height=0, fg_color=("#000000"), corner_radius=30)
@@ -201,33 +209,38 @@ class GetUpPlayApp:
         self.control_frame = ctk.CTkFrame(self.right_frame, width=0, height=0, fg_color=("#0579C2"), corner_radius=17)
         self.control_frame.grid(row=48, rowspan=76, column=1004, columnspan=227, sticky="nsew")
 
+        image_label = ctk.CTkLabel(self.left_frame, image=GUP_logo, text="")
+        image_label.pack(pady=48)
+
+
+
+        for i in range(549):  # Adjust as needed for the layout inside the right_frame
+            self.button_frame.grid_rowconfigure(i, weight=1)
+
+        for j in range(424):  # Adjust as needed for the layout inside the right_frame
+            self.button_frame.grid_columnconfigure(j, weight=1)
+
         # Ajouter le menu déroulant dans le left_frame
-        self.profile_menu = ctk.CTkOptionMenu(
-            self.description_frame,
-            variable=self.profile_var,
-            values=list(game_profiles.keys()),
-            command=self.update_mappings,
-            font=poppins_font,
-            fg_color="#1E88E5",
-            button_color="#1E88E5",
-            button_hover_color="#1565C0",
-            dropdown_fg_color="#1E88E5",
-            dropdown_hover_color="#1565C0",
-            text_color="white",
-            dropdown_text_color="white"
-        )
-        self.profile_menu.pack(pady=5)
+        for profile in game_profiles.keys():
+            button = ctk.CTkButton(
+                master=self.left_frame,
+                text=profile,  # Set the button text to the profile name
+                text_color="#0579C2",
+                font=("Poppins", 14, "bold", "italic"),
+                fg_color="#CDEAF3",  # Button color
+                hover_color="#1565C0",  # Hover effect color
+                command=lambda p=profile: self.update_mappings(p)  # Pass the profile to the function
+            )
+            button.pack(pady=5)  # Add some spacing between buttons
 
         # Ajouter les commandes de mouvement dans le left_frame
         self.movement_labels = {}
-        self.movement_frame = ctk.CTkFrame(self.button_frame)
-        self.movement_frame.pack(pady=10, padx=10, fill="both", expand=True)
 
         for movement in game_profiles.get("Jeu 1", {}):
-            label = ctk.CTkLabel(self.movement_frame, text=f"{movement} : ", font=poppins_font)
+            label = ctk.CTkLabel(self.button_frame, text=f"{movement} : ", font=poppins_font)
             label.grid(row=len(self.movement_labels), column=0, pady=5, padx=10, sticky="w")
 
-            key_entry = ctk.CTkEntry(self.movement_frame, font=poppins_font, width=150)
+            key_entry = ctk.CTkEntry(self.button_frame, font=poppins_font, width=150)
             key_entry.grid(row=len(self.movement_labels), column=1, pady=5, padx=10, sticky="ew")
 
             self.movement_labels[movement] = key_entry
@@ -235,27 +248,30 @@ class GetUpPlayApp:
         # Mettre à jour les touches en fonction du profil
         self.update_mappings("Jeu 1")
 
+
+        
+
         # Ajouter le retour vidéo dans le right_frame
-        self.canvas = ctk.CTkLabel(self.cam_frame)
-        self.canvas.grid()
+        # self.canvas = ctk.CTkLabel()
+        # self.canvas.grid()
 
         self.capture_video()
 
         # Ajouter les boutons dans le frame aligné horizontalement
-        self.create_profile_button = ctk.CTkButton(self.left_frame, text="=", font=poppins_font, corner_radius=50, command=self.create_game_profile)
-        self.create_profile_button.pack()
+        self.create_profile_button = ctk.CTkButton(self.left_frame, image=GUP_add, text="", width=60, height=60, fg_color="#CDEAF3", command=self.create_game_profile)
+        self.create_profile_button.pack(pady=10)
 
-        self.delete_profile_button = ctk.CTkButton(self.description_frame, text="Supprimer le Profil", font=poppins_font, command=self.delete_profile)
+        self.delete_profile_button = ctk.CTkButton(self.description_frame, image=GUP_delete, text="", width=60, height=60, fg_color="transparent", command=self.delete_profile)
         self.delete_profile_button.pack()
 
-        self.download_profile_button = ctk.CTkButton(self.control_frame, text="Télécharger", font=poppins_font, command=self.download_profile)
-        self.download_profile_button.pack()
+        self.download_profile_button = ctk.CTkButton(self.control_frame, image=GUP_download, text="", width=60, height=60, fg_color="transparent", hover=False, command=self.download_profile)
+        self.download_profile_button.grid(row=0, column=0, sticky="e")
 
-        self.import_profile_button = ctk.CTkButton(self.control_frame, text="Importer", font=poppins_font, command=self.import_profile)
-        self.import_profile_button.pack()
+        self.import_profile_button = ctk.CTkButton(self.control_frame, image=GUP_import, text="", width=60, height=60, fg_color="transparent", hover=False, command=self.import_profile)
+        self.import_profile_button.grid(row=0, column=1)
 
-        self.refresh_button = ctk.CTkButton(self.control_frame, text="Rafraîchir", font=poppins_font, command=self.reload)
-        self.refresh_button.pack()
+        self.refresh_button = ctk.CTkButton(self.control_frame, image=GUP_refresh, text="", width=60, height=60, fg_color="transparent", hover=False, command=self.reload)
+        self.refresh_button.grid(row=0, column=2, sticky="w")
 
 
     def reload(self):
@@ -376,7 +392,7 @@ class GetUpPlayApp:
         for widget in self.root.winfo_children():
             widget.destroy()
         # Masquer l'écran principal
-        self.main_frame.pack_forget()
+        self.right_frame.pack_forget()
 
         # Créer un Frame pour la création du profil
         self.create_profile_frame = ctk.CTkFrame(self.root, corner_radius=15)
@@ -574,7 +590,7 @@ class GetUpPlayApp:
     def update_mappings(self, profile_name):
         """ Mettre à jour les touches affichées en fonction du profil sélectionné """
         # Effacer les anciens widgets de mouvements
-        for widget in self.movement_frame.winfo_children():
+        for widget in self.button_frame.winfo_children():
             widget.destroy()
 
         # Réinitialiser le dictionnaire des labels
@@ -583,13 +599,19 @@ class GetUpPlayApp:
         # Ajouter les mouvements du profil sélectionné
         mappings = game_profiles.get(profile_name, {})
         for movement, key in mappings.items():
-            # Ajouter une ligne pour chaque mouvement
-            label = ctk.CTkLabel(self.movement_frame, text=f"{movement} : ", font=("Poppins", 14))
-            label.grid(row=len(self.movement_labels), column=0, pady=5, padx=10, sticky="w")
 
-            key_entry = ctk.CTkEntry(self.movement_frame, font=("Poppins", 14), width=150)
+            input_frame= ctk.CTkFrame(self.button_frame, fg_color="#0579C2")
+            input_frame.grid(pady=(10,0), column=23, columnspan=378, sticky="ew")
+
+            input_frame.grid_columnconfigure((0,1), weight=1)
+
+            # Ajouter une ligne pour chaque mouvement
+            label = ctk.CTkLabel(input_frame, text=f"{movement}", font=("Poppins", 18, "bold", "italic"), width=0, text_color="#CDEAF3", anchor="w")
+            label.grid(row=len(self.movement_labels), column=0, padx=15, pady=5, sticky="w")
+
+            key_entry = ctk.CTkEntry(input_frame, font=("Poppins", 14, "bold", "italic"), width=70, text_color="#0579C2")
             key_entry.insert(tk.END, key)  # Pré-remplir avec la touche associée
-            key_entry.grid(row=len(self.movement_labels), column=1, pady=5, padx=10, sticky="ew")
+            key_entry.grid(row=len(self.movement_labels), column=1, pady=5, padx=10, sticky="e")
 
             # Sauvegarder le champ dans le dictionnaire
             self.movement_labels[movement] = key_entry
