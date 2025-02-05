@@ -160,6 +160,7 @@ class GetUpPlayApp:
         GUP_import = ImageTk.PhotoImage(Image.open("../public/import 1.png").resize((30, 30), Image.Resampling.LANCZOS))
         GUP_refresh = ImageTk.PhotoImage(Image.open("../public/refresh 1.png").resize((30, 30), Image.Resampling.LANCZOS))
         GUP_logo = ImageTk.PhotoImage(Image.open("../public/Group 16.png").resize((50, 50), Image.Resampling.LANCZOS))
+        GUP_pic = ImageTk.PhotoImage(Image.open("../public/pic.png").resize((30, 30), Image.Resampling.LANCZOS))
 
         # Initialisation de la variable de profil
         self.profile_var = tk.StringVar(value="Jeu 1")
@@ -202,6 +203,11 @@ class GetUpPlayApp:
         self.description_frame = ctk.CTkFrame(self.right_frame, width=0, height=0, fg_color=("#CDEAF3"), corner_radius=17)
         self.description_frame.grid(row=48, rowspan=145, column=30, columnspan=757, sticky="nsew")
 
+
+        self.block_frame = ctk.CTkFrame(self.description_frame, fg_color="#0579C2", corner_radius=17)
+        self.block_frame.pack(padx=10, pady=10, fill="both", expand=True)
+
+
         self.button_frame = ctk.CTkFrame(self.right_frame, width=0, height=0, fg_color=("#CDEAF3"), corner_radius=17)
         self.button_frame.grid(row=223, rowspan=549, column=30, columnspan=424, sticky="nsew")
 
@@ -231,7 +237,7 @@ class GetUpPlayApp:
                 font=("Poppins", 14, "bold", "italic"),
                 fg_color="#CDEAF3",  # Button color
                 hover_color="#1565C0",  # Hover effect color
-                command=lambda p=profile: self.update_mappings(p)  # Pass the profile to the function
+                command=lambda p=profile: (self.profile_var.set(p), self.update_mappings(p), self.update_label_and_profile)  # Pass the profile to the function
             )
             button.pack(pady=5)  # Add some spacing between buttons
 
@@ -250,12 +256,12 @@ class GetUpPlayApp:
         # Mettre à jour les touches en fonction du profil
         self.update_mappings("Jeu 1")
 
-
-        
+        self.cam_frame.grid_columnconfigure(0, weight=1)
+        self.cam_frame.grid_rowconfigure(0, weight=1)
 
         # Ajouter le retour vidéo dans le right_frame
-        self.canvas = ctk.CTkLabel(self.cam_frame)
-        self.canvas.grid(sticky="nsew")
+        self.canvas = ctk.CTkLabel(self.cam_frame, text="")
+        self.canvas.grid(column=0, row=0, padx=0, pady=0)
 
         self.capture_video()
 
@@ -263,8 +269,11 @@ class GetUpPlayApp:
         self.create_profile_button = ctk.CTkButton(self.left_frame, image=GUP_add, text="", width=60, height=60, fg_color="#CDEAF3", command=self.create_game_profile)
         self.create_profile_button.pack(pady=10)
 
-        self.delete_profile_button = ctk.CTkButton(self.description_frame, image=GUP_delete, text="", width=60, height=60, fg_color="transparent", command=self.delete_profile)
-        self.delete_profile_button.pack()
+        self.delete_profile_button = ctk.CTkButton(self.block_frame, image=GUP_delete, text="", width=60, height=60, fg_color="transparent", command=self.delete_profile)
+        self.delete_profile_button.pack(side="right")
+
+        self.pic_button = ctk.CTkButton(self.block_frame, image=GUP_pic, text="", width=60, height=60, fg_color="transparent", command=self.switch_camera)
+        self.pic_button.pack(side="right")
 
         self.download_profile_button = ctk.CTkButton(self.control_frame, image=GUP_download, text="", width=60, height=60, fg_color="transparent", hover=False, command=self.download_profile)
         self.download_profile_button.grid(row=0, column=0, sticky="e")
@@ -275,6 +284,14 @@ class GetUpPlayApp:
         self.refresh_button = ctk.CTkButton(self.control_frame, image=GUP_refresh, text="", width=60, height=60, fg_color="transparent", hover=False, command=self.reload)
         self.refresh_button.grid(row=0, column=2, sticky="w")
 
+        self.Title = ctk.CTkLabel(self.block_frame, text="")
+        self.Title.pack()
+    
+    def update_label_and_profile(self, profile):
+            self.Title.configure(text=profile)  # Update the label text
+            self.Title.update()  # Force the label to refresh (optional)
+            self.profile_var.set(profile)  # Update the profile variable
+            self.update_mappings(profile)  # Call the update_mappings function
 
     def reload(self):
         print("Rechargement des widgets...")
